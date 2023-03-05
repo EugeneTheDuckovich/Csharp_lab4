@@ -10,11 +10,11 @@ namespace AudioLibrary.InputModels;
 public class AuthorInputModel
 {
     public string Name { get; set; }
-    public int Year { get; set; }
+    public string Year { get; set; }
 
     public AuthorInputModel() 
     {
         Name= string.Empty;
-        Year= 0;
+        Year= string.Empty;
     }
 }

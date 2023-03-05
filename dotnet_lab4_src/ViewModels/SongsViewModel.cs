@@ -73,6 +73,12 @@ internal class SongsViewModel : ViewModel
                 return;
             }
 
+            if (Songs.Any(s => s.Name == NewSong.Name && s.Author.Name == NewSong.Author.Name))
+            {
+                MessageBox.Show("this song already exists!");
+                return;
+            }
+
             int id;
             if (Songs.Count > 0) id = Songs.MaxBy(s => s.Id).Id + 1;
             else id = 1;

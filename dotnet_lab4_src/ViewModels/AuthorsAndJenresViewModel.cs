@@ -97,7 +97,12 @@ internal class AuthorsAndJenresViewModel : ViewModel
                 return;
             }
 
-
+            int year;
+            if(!int.TryParse(NewAuthor.Year, out year))
+            {
+                MessageBox.Show("year must be a number!");
+                return;
+            }
 
             if (Authors.Any(a => a.Name == NewAuthor.Name))
             {
@@ -109,7 +114,7 @@ internal class AuthorsAndJenresViewModel : ViewModel
             if (Authors.Count == 0) id = 1;
             else id = Authors.MaxBy(a => a.Id).Id + 1;
 
-            Authors.Add(new Author(id,NewAuthor.Name,NewAuthor.Year));
+            Authors.Add(new Author(id,NewAuthor.Name,year));
             NewAuthor = new AuthorInputModel();
         });
     }
