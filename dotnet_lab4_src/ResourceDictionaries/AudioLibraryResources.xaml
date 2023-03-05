@@ -47,4 +47,8 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 
+    <Style TargetType="Button">
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
+
 </ResourceDictionary>
