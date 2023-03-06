@@ -114,8 +114,15 @@ internal class AuthorsAndJenresViewModel : ViewModel
             if (Authors.Count == 0) id = 1;
             else id = Authors.MaxBy(a => a.Id).Id + 1;
 
-            Authors.Add(new Author(id,NewAuthor.Name,year));
-            NewAuthor = new AuthorInputModel();
+            try
+            {
+                Authors.Add(new Author(id, NewAuthor.Name, year));
+                NewAuthor = new AuthorInputModel();
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("year out of range!");
+            }
         });
     }
 
