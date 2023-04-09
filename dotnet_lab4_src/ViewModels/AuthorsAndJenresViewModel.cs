@@ -14,7 +14,7 @@ using System.Windows.Input;
 
 namespace AudioLibrary.ViewModels;
 
-internal class AuthorsAndJenresViewModel : ViewModel
+public class AuthorsAndJenresViewModel : ViewModel
 {
     private IRepository<Jenre> _jenresRepository;
     private IRepository<Author> _authorsRepository;
@@ -59,6 +59,7 @@ internal class AuthorsAndJenresViewModel : ViewModel
         NewAuthor = new AuthorInputModel();
     }
 
+
     private ICommand _addJenreCommand;
     public ICommand AddJenreCommand
     {
@@ -85,6 +86,7 @@ internal class AuthorsAndJenresViewModel : ViewModel
             NewJenre = new JenreInputModel();
         });
     }
+
 
     private ICommand addAuthorCommand;
     public ICommand AddAuthorCommand
@@ -119,12 +121,13 @@ internal class AuthorsAndJenresViewModel : ViewModel
                 Authors.Add(new Author(id, NewAuthor.Name, year));
                 NewAuthor = new AuthorInputModel();
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("year out of range!");
             }
         });
     }
+
 
     private ICommand _goToSongsPageCommand;
     public ICommand GoToSongsPageCommand

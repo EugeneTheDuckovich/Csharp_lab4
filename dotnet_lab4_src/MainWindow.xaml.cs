@@ -1,6 +1,4 @@
 ﻿using AudioLibrary.Pages;
-using AudioLibrary.Repositories;
-using AudioLibrary.ViewModels;
 using AudioLibrary.ViewModels.Abstract;
 using System.IO;
 using System.Windows;
